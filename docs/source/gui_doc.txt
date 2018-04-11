@@ -1,0 +1,8 @@
+.. _gui:
+
+====================================
+The OpenPTV graphical user interface
+====================================
+
++ Python Bindings to PTV library :download:`[Link] <../add_docs/Python_bindings.pdf>`
++ Tutorial written by Hristo Goumnerov :download:`[Link] <../add_docs/OpenPTV Manual - first draft.docx>`

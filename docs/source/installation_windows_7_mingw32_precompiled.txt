@@ -1,0 +1,37 @@
+===================================================================================
+Installation of OpenPTV on Windows 7 and 8.1 using MinGW and pre-compiled libraries
+===================================================================================
+
+
+1. install mingw to C:\Mingw from http://www.mingw.org/  
+   * run the installer  
+   * select ```mingw-develop```  
+   * go to ```c:\mingw\msys\1.0\postinstall``` and run pi.bat (answer ‘y’ and type c:\mingw)
+   * run ```msys.bat``` from ```c:\mingw\msys\1.0```
+2.      install Anaconda Python distribution with Python 2.7 and 32-bit http://continuum.io/downloads#all
+   * open the shell (msys.bat) and use command line to install additional things::
+      
+      conda update conda
+      conda install traitsui
+      conda install enable
+      conda install chaco
+      
+3. Download openptv-python from <https://github.com/OpenPTV/openptv-python/archive/master.zip>
+   * unzip it into ``c:\mingw\msys\1.0\home\USERNAME\openptv-python``
+4. Download test folder from <https://github.com/OpenPTV/test_cavity/archive/master.zip>
+   * unzip it into ``c:\mingw\msys\1.0\home\USERNAME\test_cavity``
+5. Download pre-compiled libraries from this link:
+   * <https://app.box.com/s/witfecw7lqcnmo8802szpdg6pz8sinmo>
+Note that there are three directories with a couple of files each, please copy the content of each subdirectory in the respective path on your machine: 
+  1. mingw to ``c:\mingw`` (it includes in msys/lib the check and optv libraries and in ``msys/include`` the ``optv/include`` and check.h and /etc/profile and /etc/fstab) 
+  2. ``Anaconda/libs/libpython27.a`` to ``Anaconda/libs``
+  3. and three PYD (like a DLL) to ``openptv-python/src_c`` folder (``ptv1.pyd``, ``tracking_run.pyd`` and ``tracking_framebuf.pyd``) 
+      
+Open MSYS shell, change directory to ``openptv-python/pyptv_gui`` and run the software::
+
+     cd openptv-python/pyptv_gui
+     python pyptv_gui.py ../../test_cavity
+     
+If you get the error that the ImportError: DLL load failed, try to add the $PATH statement:
+
+     PATH=/usr/lib:$PATH python pyptv_gui.py ~/test_folder/

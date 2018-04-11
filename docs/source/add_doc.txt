@@ -1,0 +1,18 @@
+.. _add_doc:
+
+=======================
+Detailed documentation
+=======================
+
++ The original manual :download:`[Link] <../add_docs/ptvmanual.pdf>` and the reference guide :download:`[Link] <../add_docs/reference_guide.pdf>` written by Jochen Willneff in 2003 (Read it first).
++ Thesis of Jochen Willneff that explains most of the theory behind the 3D-PTV `[Link] <https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/igp-dam/documents/PhD_Theses/82.pdf>`
++ Multi-plane calibration manual by Lorenzo del Castello, TU/e. :download:`[Link] <../add_docs/calibTutorial.pdf>`
++ Dumbbell (or wand) calibration, :doc:`dumbbell_calibration`
++ PTV file system description: briefly about rt_is and ptv_is files <PTV_files> or detailed :download:`[Link] <../add_docs/PTVFileSystem.pdf>`
++ Technical aspects of 3D PTV :download:`[Link] <../add_docs/Technical_aspects.pdf>`
++ Python Bindings to PTV library :download:`[Link] <../add_docs/Python_bindings.pdf>`
++ Tutorial written by Hristo Goumnerov  :download:`[Link] <../add_docs/OpenPTV Manual - first draft.docx>`
++ Master thesis, *three-dimensional particle tracking velocimetry for turbulence applications*, written by Jin-Tae Kim in 2015 `[Website Link] <http://chamorro.mechse.illinois.edu/3d.htm>`_
++ Report and tutorial by Dominik Bauer, *Particle Tracking Velocimetry with OpenPTV*, :download:`[Link] <../add_docs/PTV_report-Dominik Bauer.pdf>`
+
+

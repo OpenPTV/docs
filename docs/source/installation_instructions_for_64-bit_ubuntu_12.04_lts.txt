@@ -1,0 +1,114 @@
+Installation Instructions for 64-bit Ubuntu 12.04 LTS
+Note: Unless the appropriate files have been downloaded, an Internet connection is required for the installation process.
+1. Download smallest distribution of Anaconda for 64-bit Linux machines:
+* Miniconda (this link is for Miniconda 3.0.0 for Linux x86_64 – 02/10/2014) The file can be saved in the /Downloads directory or elsewhere.
+
+2. Open the terminal, and go to the directory where the miniconda file is stored; i.e. if the file is in the /Downloads folder run the command:
+a. $ cd ~
+b. $ cd Downloads/
+To verify that the file is in the directory, type $ ls and look for the file named Miniconda-3.0.0-Linux-x86_64.sh. Then run the installation command:
+c. $ bash Miniconda-3.0.0-Linux-x86_64.sh
+
+The conda build package, python 2.7.6 and some additional packages are installed in the directory ~/miniconda. Answer Yes to automatically add conda to the .bashrc file (recommended), or No to do it manually. Close the current terminal and open a new one – this step is necessary to be able to run the command “conda”; if the command is not found in the new terminal, try restarting the computer.
+
+
+3. Download the list file alex_list.txt and save it in the same directory as Miniconda. Go to the same directory as the list file. Type:
+* $ conda install --file alex_list.txt
+
+
+4. (Recommended by Dr. Liberzon) Remove and rename the libm.so.6 file in the ~/miniconda/lib directory to libm.so.6.bck by running the following command:
+* $ mv ~/miniconda/lib/libm.so.6 ~/miniconda/lib/libm.so.6.bck
+
+
+5. Install the check framework package in order to be able to test the PTV code. This step is required if one desires to develop the PTV code, and not just the application thereof. It is recommended to install the package, and to be sure that the installation process goes by properly. To install the package there are two options:
+a. Open a terminal and run (Recommended):
+o $ sudo apt-get install check
+b. Install from source: 
+i. Download check-package
+ii. Open a terminal and go to the directory holding the downloaded file
+iii. Run the commands:
+1. $ ./configure
+2. $ make
+3. $ make check (Note: if this does not work try $ make verify)
+4. $ sudo make install
+
+
+6. Install the program/package cmake. This is necessary to process the liboptv library needed to run the 3D-PTV code. Like the check package, cmake can be installed either with apt-get or from source. 
+a. Open a terminal and run (Recommended):
+o $ sudo apt-get install cmake
+b. Install from source:
+i. Download the appropriate cmake file from:
+1. http://cmake.org/cmake/resources/software.html 
+(The author of this document used cmake-2.8.12.2.tar.gz)
+ii. Open a terminal and go to the directory holding the downloaded file
+iii. Run the commands:
+1. $ ./bootstrap
+2. $ make
+3. $ sudo make install
+
+
+7. Update and upgrade the system, install build-essential, add g++ compiler, and git (this can be done in any directory). To do so run the following commands:
+a. $ sudo apt-get update
+b. $ sudo apt-get upgrade
+c. $ sudo apt-get install build-essential
+d. $ gcc –v
+e. $ sudo apt-get install g++
+f. $ g++ -v
+g. $ make –v
+h. $ sudo apt-get install git
+
+8. Download and install the liboptv library in the home directory by running the following commands in the terminal (Alternatively, download the openptv folder here and extract it in the ~/home directory – steps a. and b. can be skipped in this case.):
+a. $ cd ~
+b. $ git clone git://github.com/OpenPTV/openptv.git
+c. $ cd openptv/liboptv (go to the liboptv directory)
+d. $ mkdir build (creates a directory in /openptv/liboptv called build)
+e. $ cd build
+f. $ cmake ../
+g. $ make
+h. $ make verify
+i. $ sudo make install
+Note: Check that the  ~/usr/local/include contains the folder optv (with files calibration.h, lsqadj.h, parameters.h, tracking_frame_buf.h) and the folder ~/usr/local/lib contains the file liboptv.so. This can be done by running the command $ locate ______ (the full name of the file goes in the blank) or by going into the respective folder.  
+
+9. Download and install openptv-python in the home directory. This is done using the following commands (Alternatively, download the openptv-python folder here and extract it in the ~/home directory – steps a. and b. can be skipped in this case.):
+a. $ cd ~
+b. $ git clone git://github.com/OpenPTV/openptv-python.git
+c. $ cd openptv-python/pyptv_gui
+d. $ python setup.py build_ext --inplace (note the double hyphen)
+This completes the installation process. In order to start the program open a terminal, go to the ~/openptv-python/pyptv_gui directory and run:
+$ python pyptv_gui.py
+If the following error shows up try running $ PATH=/usr/local/lib:$PATH python pyptv_gui.py or $ LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH python pyptv_gui.py. The latter command worked for the author of this document.
+The error in question is:
+> Wrong experimental directory /home/hristo/…
+    > src_path= /home/hristo/openptv-python/src_c
+    > Traceback (most recent call last):
+    > File "pyptv_gui.py", line 60, in <module>
+    > import ptv1 as ptv
+    > ImportError: liboptv.so: cannot open shared object file: No such file or
+    > directory
+
+A successful start of the program displays the message 
+src_path= /home/<username>/openptv-python/src_c
+and opens a window titled “Choose the Experiments directory” where one can either type in the directory of the experimental data or click the folder button on the right and browse to the directory.
+
+10. In order to avoid having to type 
+      LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+	every time you run python pyptv_gui.py, you can edit the .bashrc file as following:
+a. Open a new terminal
+b. Run the command $ vi /home/_____/.bashrc (blank is your username)
+c. Hit i 
+d. Go to the very end of the file and add the following line:
+i. export  LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+e. Hit Esc
+f. Type :wq and hit Enter
+g. (maybe optional) Run the command $ source ~/.bashrc 
+
+Check that this works by running the following commands:
+h. $ cd ~/openptv-python/pyptv_gui
+i. $ python pyptv_gui.py
+
+PyPTV Installation Instructions for Ubuntu
+
+
+Page 4 of 4
+
+

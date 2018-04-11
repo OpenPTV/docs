@@ -1,0 +1,61 @@
+
+How to use the custom image segmentation and target files
+---------------------------------------------------------
+
+
+
+Sometimes there is a need for a sophisticated particle (or any other object) identification that is not possible using standard OpenPTV tools (highpass with edge detection and particle center identification, see ```liboptv``` for details). One of such examples is our dumbbell calibration - one needs to identify two (and only two) bright spots of relatively large objects that could not be implemented using OpenPTV. Therefore, we implement the object identification in Python and write per each image the ```_target``` file in the same folder as the images (i.e. if `/img/img.10001` we add `/img/img.10001_target`). Then we tell the OpenPTV-Python not to use the ```liboptv```, but instead use the existing ```_targets``` files. There is a checkbox to be checked in in the ```Main Parameters```. 
+
+Step 1
+^^^^^^
+
+Run your image processing routine, e.g. https://github.com/alexlib/alexlib_openptv_post_processing/blob/master/Python/dumbbell.ipynb and save the identified objects into the files, see an example of the writing subroutine: 
+
+    def write_dumbbells(filename, centers, radii, indices):
+    counter = 0
+    with open(filename,'w') as f:
+        f.write('%d\n' % 2)
+        for idx in indices:
+            x, y = centers[idx]
+            r = radii[idx]
+            f.write('%4d %9.4f %9.4f %5d %5d %5d %5d %5d\n' % (counter,y,x,r**2,2*r,2*r,r**2*255,-1))
+            counter+=1
+
+
+Step 2
+^^^^^^
+
+Check in the ``\ use existing\_target\_files\`` in the ```Main Parameters```
+
+ |image6|
+
+
+
+All the rest should work as usual: ```Sequence -> Tracking ``` 
+
+
+
+.. |image0| image:: ../images/fig1.png
+.. |image1| image:: ../images/fig2.png
+.. |image2| image:: ../images/fig3.png
+.. |image3| image:: ../images/fig4.png
+.. |image4| image:: ../images/fig6.png
+.. |image5| image:: ../images/fig6.png
+.. |image6| image:: ../images/fig7.png
+.. |image7| image:: ../images/fig8.png
+.. |image8| image:: ../images/fig9.png
+.. |image9| image:: ../images/fig10.png
+.. |image10| image:: ../images/fig11.png
+.. |image11| image:: ../images/fig12.png
+.. |image12| image:: ../images/fig13.png
+.. |image13| image:: ../images/fig14.png
+.. |image14| image:: ../images/fig15.png
+.. |image15| image:: ../images/fig16.png
+.. |image16| image:: ../images/fig17.png
+.. |image17| image:: ../images/fig18.png
+.. |image18| image:: ../images/fig19.png
+
+
+
+
+    
