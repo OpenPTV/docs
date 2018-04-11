@@ -14,6 +14,9 @@ Please follow the development on the community mailing list:
 
 <http://openptv-python.readthedocs.io>
 
+## Frequently asked questions on wiki
+<https://github.com/OpenPTV/openptv/wiki/Frequenty-Asked-Questions-(FAQ)>
+
 ## Getting started:
 
 If the compilation passed, open the terminal and run:  
