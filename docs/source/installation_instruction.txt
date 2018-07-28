@@ -305,8 +305,8 @@ Getting started using virtual machine
 -------------------------------------
 
 There are two VirtualBox images: 
-1) older on Ubuntu 16.04, 6.4Gb image of `openptv-python https://github.com/OpenPTV/openptv-python/wiki/No-Installation-with-Virtual-Machine`_ and 
-2) a newer (but without multiplane calibration yet) Ubuntu 18.04 with `pyptv https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image`_ 
+1) older on Ubuntu 16.04, 6.4Gb image of `openptv-python` https://github.com/OpenPTV/openptv-python/wiki/No-Installation-with-Virtual-Machine and 
+2) a newer (but without multiplane calibration yet) Ubuntu 18.04 with `pyptv` https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image 
 
 
 Is there a Docker? 
