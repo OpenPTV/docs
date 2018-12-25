@@ -9,25 +9,19 @@ Introduction
 ------------
 
 
-The OpenPTV contains of these main parts: 
+The OpenPTV contains of: 
 
 #. Core library written in C, called `liboptv <http://github.com/OpenPTV/openptv/tree/master/liboptv>`_
-#. Python bindings called, shipped together with the `liboptv`
+#. Python/Cython bindings, shipped together with the `liboptv`
 
-The Python bindings allow the easy access to the C library. There are two packages that are built around the Python bindings: 
+The Python bindings allow the easy access to the C library. There are two Python GUI packages that are built around the Python bindings to allow the end-user to use it in a more intuitive way: 
 
 #. Python 2.7 with PyQt4 GUIs and command line scripts from Yosef Meller called The Particle Bureau of Investigation or `pbi <http://github.com/yosefm/pbi>`_ 
-#. Python 2.7 with Enthought based GUI (using TraitsUI and Chaco) called `PyPTV <http://github.com/alexlib/pyptv>`_
+#. Python 2.7 based GUI (using TraitsUI, Enthought Chaco, etc.) called `PyPTV <http://github.com/alexlib/pyptv>`_
 
 
-
-The C library ``liboptv`` is using Check framework for the unit tests and Cmake project for the build. We recommend installing both software packages, however it is not obligatory, you may skip the relevant parts if you're not going to develop or test the library.
-
-One has to install first ``liboptv`` and the Python bindings and after that the `pbi` or `pyptv` (or both). 
-
-
-liboptv - a library of the OpenPTV algorithms
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+`liboptv` - a library of the OpenPTV algorithms
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This is a library - you can build it and link to it in your own project, e.g. calling functions from your own GUI or command-line software. When the package is installed correctly, you can reference it in your code by including files from the ``optv`` directory under the standard include path. For example::
 
@@ -38,12 +32,29 @@ To build your program you also link it with ``liboptv``. On ``gcc``, one adds th
 instructions for adding libraries; consult your IDE/compiler manual for the 
 details.
 
+The library is using `Check <https://github.com/libcheck/check>`_  framework for the unit tests and Cmake project for the build. We recommend installing both software packages, however it is not obligatory, you may skip the relevant parts if you're not going to develop or test the library.
+
+Installation
+~~~~~~~~~~~~
+
+#. Both the library ``liboptv`` and the Python bindings (either `pbi` or `pyptv` or both) need to be installed, separately. 
+
 Below are instructions for building it and making it ready for use, either from
 a source distribution (a tarball with all necessary files) or directly from a 
-Git repository. 
+Git repository, on various platforms (Linux, Windows, Mac OS X) and using various options such as Virtual Machine or Docker. Note that it is possible to install and run the OpenPTV software in the cloud, e.g. on Google Cloud, AWS, Azure, etc. 
 
-Installing on Linux/Mac OS
------------------------------
+
+Use Docker
+----------
+
+Use the instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_
+
+Basically it requires to install Docker and X Server (for GUI) and works on both Windows (tested on Win 10) and Mac OS X (tested on Mojave 10.14.2). 
+
+
+
+Build from source on Linux with Canopy Python distribution
+----------------------------------------------------------
 
 #. Create the directory that will contain everything::
 
@@ -65,7 +76,7 @@ Installing on Linux/Mac OS
 
 	 sudo apt-get install git
 
-#. Install Anaconda (read their instructions, shall be straightforward) or Canopy Python distribution (Python 2.7) ::
+#. Install Canopy Python distribution (Python 2.7) ::
 
         bash canopy_xxx.xxx.sh
 
@@ -101,7 +112,7 @@ check that it's installed under `/usr/local/include` and `/usr/local/lib`
 	
 56 tests should be running and passing
 
-#. Get `pbi` or `pyptv`, an example is for `pyptv` here::    
+#. Get your GUI, for instance we explain about `pyptv` here::    
 
 	 cd ~/openptv
 	 git clone git://github.com/alexlib/pyptv.git
@@ -134,12 +145,12 @@ or ::
 Whichever works, it is then useful to update the local ~/.bashrc file to define this every time one opens a shell.
 
 
-Building from source/Installing on Mac OS X:
---------------------------------------------
+Building from source on Mac OS X:
+---------------------------------
 
 Basically follow the Linux instructions, whenever the `apt-get` package manager is used, one can use MacPorts or Homebrew package managers. 
-Instead, one can simply download and install from source the a) check b) cmake c) liboptv, d) openptv-python and install Anaconda using
-the Mac OS package. 
+
+Instead, one can simply download and install from source the a) `check` b) `cmake` c) `liboptv`, d) `pyptv` and install Anaconda Python distribution using the Mac OS package. For the very detailed set of instructions one can look at our `.travis.yml` and `install_macosx.sh` files in the `PyPTV <http://github.com/alexlib/pyptv>`_ repository. 
 
 Installing directly from the source tree in Git is fast and simple, using 
 CMake. Before installation first we need to make sure that the dependencies are installed. A bit more detailed instructions for Ubuntu users are given below.  
@@ -154,7 +165,7 @@ CMake. Before installation first we need to make sure that the dependencies are 
 	make  
 	make install  
 
-2. The build instructions for liboptv are processed with CMake. Again, this 
+2. The build instructions for `liboptv` are processed with CMake. Again, this 
    is available either from your package manager on Linux, or from <http://cmake.org>.
    
    After installing CMake, installing ``liboptv`` is a simple matter of running
@@ -172,10 +183,22 @@ can run ``cmake`` with parameters that would change the install locations (see
 below on the Windows install process). If you do so, remmember to make sure 
 that your compiler knows the path to the installed location.
 
+If nothing works, where I can get help?  
+---------------------------------------
 
-Installing on Windows - outdated, see VirtualBox option below
--------------------------------------------------------------
+Send your build logs, description of the problem and details of the operating system, Python version, etc. to our Google group or forum: <https://groups.google.com/forum/#!forum/openptv>
+ 	
 
+Getting started using Virtual Machine appliances
+------------------------------------------------
+
+Ubuntu 18.04 with `pyptv`, see here: https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image 
+
+
+
+
+Installing on Windows 7, 8.1 - OUTDATED, use Docker or Virtual Machine
+----------------------------------------------------------------------
 
 Unlike Linux and MacOS, which both implement POSIX standards (the Unix 
 standards base) and contain a default C build environment, Windows has 
@@ -292,25 +315,4 @@ We recommend using Enthought Canopy Distribution or Anaconda to get all the nece
 
 
 For Windows 7 (8.1) there is an additional option to use pre-compiled binaries as explained here: `Installation on Windows 7 using MinGW <installation_windows_7_mingw32_precompiled.html>`_
-
-
-
-If nothing works, where I can get help?  
----------------------------------------
-
-Send your build logs, description of the problem and details of the operating system, Python version, etc. to our Google group or forum: <https://groups.google.com/forum/#!forum/openptv>
- 	
-
-Getting started using virtual machine 
--------------------------------------
-
-There are two VirtualBox images: 
-1) older on Ubuntu 16.04, 6.4Gb image of `openptv-python` https://github.com/OpenPTV/openptv-python/wiki/No-Installation-with-Virtual-Machine and 
-2) a newer (but without multiplane calibration yet) Ubuntu 18.04 with `pyptv` https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image 
-
-
-Is there a Docker? 
-------------------
-
-Yes, follow this https://github.com/alexlib/dockerfiles and https://www.youtube.com/watch?v=tzOaI8SYFYs
 
