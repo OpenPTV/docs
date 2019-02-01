@@ -74,11 +74,11 @@ Build from source on Linux with Canopy Python distribution
 
 #. Install git::  
 
-	 sudo apt-get install git
+	sudo apt-get install git
 
 #. Install Canopy Python distribution (Python 2.7) ::
 
-        bash canopy_xxx.xxx.sh
+	bash canopy_xxx.xxx.sh
 
 #. Run Canopy (either `~/Canopy/canopy` or `Applications -> Canopy`)
 
@@ -98,9 +98,9 @@ Build from source on Linux with Canopy Python distribution
 	 make
 	 make verify
 	 
-see that all tests passed and then: 
+see that all tests passed and then:  
 
-	 sudo make install
+	sudo make install
 	 
 check that it's installed under `/usr/local/include` and `/usr/local/lib`
 
