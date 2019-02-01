@@ -86,11 +86,13 @@ Build from source on Linux with Canopy Python distribution
 
 #. Open Canopy Terminal through `Canopy -> Tools -> Canopy Terminal`
 
-#. Get OpenPTV library `liboptv`, compile it using cmake and test it::  
+#. Get the GUI, for instance we explain about `pyptv` here that downloads also the OpenPTV library using `--recursive`::    
 
-	 cd ~/openptv 
-	 git clone git://github.com/OpenPTV/openptv.git
-	 cd openptv/liboptv
+	 git clone --recursive http://github.com/alexlib/pyptv.git pyptv
+
+#. Compile  OpenPTV library `liboptv` it using cmake and test it::  
+
+	 cd pyptv/openptv/liboptv 
 	 mkdir build && cd build
 	 cmake ../ -G "Unix Makefiles"
 	 make
@@ -104,28 +106,23 @@ check that it's installed under `/usr/local/include` and `/usr/local/lib`
 
 #. Install Python bindings for the library (installs ```optv``` module)::
 
-	cd ~/openptv/openptv/py_bind
+	cd ~/../../py_bind
 	python setup.py build_ext --inplace -I/usr/local/include -L/usr/local/lib
 	python setup.py install
 	cd tests
 	nosetest 
 	
-56 tests should be running and passing
-
-#. Get your GUI, for instance we explain about `pyptv` here::    
-
-	 cd ~/openptv
-	 git clone git://github.com/alexlib/pyptv.git
-	 cd pyptv/pyptv_gui
-	 python setup.py install
+58 tests should be running and passing
 	 
 #. Get 3D-PTV test folder and create the `res/` folder if missing ::
 
+	 cd ~
 	 git clone https://github.com/OpenPTV/test_cavity.git
 	 
 #. Run the software using the `test_cavity` folder, if all works fine, that's it::
 
-	 python pyptv_gui.py ~/openptv/test_cavity
+	 cd pyptv/pyptv
+	 python pyptv_gui.py ../../test_cavity
 
 If you encounter the error like this while trying to run the ``openptv-python``::
 
