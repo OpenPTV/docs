@@ -20,6 +20,13 @@ The Python bindings allow the easy access to the C library. There are two Python
 #. Python 2.7 based GUI (using TraitsUI, Enthought Chaco, etc.) called `PyPTV <http://github.com/alexlib/pyptv>`_
 
 
+The overview
+~~~~~~~~~~~~
+
+#. if you plan to use C/C++/Fortran/etc. - compile the `liboptv` from source using `cmake`  and testing it using `libcheck` library (see below instructions for Linux and Mac OS X).
+#. if you plan to use it only from Python (either through `pbi` command line approach or using `pyptv` GUI) then you can save time on installing `liboptv` by `pip` (see below) or compiling through Python bindings and testing it from Python. 
+
+
 `liboptv` - a library of the OpenPTV algorithms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -44,17 +51,31 @@ a source distribution (a tarball with all necessary files) or directly from a
 Git repository, on various platforms (Linux, Windows, Mac OS X) and using various options such as Virtual Machine or Docker. Note that it is possible to install and run the OpenPTV software in the cloud, e.g. on Google Cloud, AWS, Azure, etc. 
 
 
+Use `pip`
+~~~~~~~~~
+
+If you plan to use only Python bindings, you can install `liboptv` with Python bindings by simply typing: 
+
+	pip install optv
+	
+The present version is 0.2.4 and it uses Numpy 1.16.1 (because of other restrictions, see below but if no GUI is used, then `numpy` version can be upgraded after the `pip` command)
+
+
 Use Docker
-----------
+~~~~~~~~~~
 
 Use the instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_
 
 Basically it requires to install Docker and X Server (for GUI) and works on both Windows (tested on Win 10) and Mac OS X (tested on Mojave 10.14.2). 
 
+Recommended Python distribuitons
+--------------------------------
+
+We recommend Anaconda for Windows and Linux (by Anaconda Inc.) and Canopy (Enthought Python Distribution) for Mac OS X. This miminizes the issues of cross-compiled packages. 
 
 
-Build from source on Linux with Canopy Python distribution
-----------------------------------------------------------
+Build from source 
+-----------------
 
 #. Create the directory that will contain everything::
 
@@ -86,10 +107,6 @@ Build from source on Linux with Canopy Python distribution
 
 #. Open Canopy Terminal through `Canopy -> Tools -> Canopy Terminal`
 
-#. Get the GUI, for instance we explain about `pyptv` here that downloads also the OpenPTV library using `--recursive`::    
-
-	 git clone --recursive http://github.com/alexlib/pyptv.git pyptv
-
 #. Compile  OpenPTV library `liboptv` it using cmake and test it::  
 
 	 cd pyptv/openptv/liboptv 
@@ -102,12 +119,12 @@ see that all tests passed and then:
 
 	sudo make install
 	 
-check that it's installed under `/usr/local/include` and `/usr/local/lib`
+check that it's installed under `/usr/local/include` and `/usr/local/lib`. The library can be used now with C, Fortran or C++ project.
 
 #. Install Python bindings for the library (installs ```optv``` module)::
 
 	cd ~/../../py_bind
-	python setup.py build_ext --inplace -I/usr/local/include -L/usr/local/lib
+	python setup.py prepare
 	python setup.py install
 	cd tests
 	nosetest 
@@ -119,31 +136,18 @@ check that it's installed under `/usr/local/include` and `/usr/local/lib`
 	 cd ~
 	 git clone https://github.com/OpenPTV/test_cavity.git
 	 
+#. Get the GUI, for instance we explain about `pyptv` here that downloads also the OpenPTV library using `--recursive`::    
+
+	 git clone http://github.com/alexlib/pyptv.git pyptv
+	 
 #. Run the software using the `test_cavity` folder, if all works fine, that's it::
 
 	 cd pyptv/pyptv
 	 python pyptv_gui.py ../../test_cavity
 
-If you encounter the error like this while trying to run the ``openptv-python``::
 
-	 python pyptv_gui.py ../../test_cavity
-   
-	> ImportError: liboptv.so: cannot open shared object file: No such file or
-	> directory 
-
-Then it's suggested to try::
-
-     PATH=/usr/local/lib:$PATH python pyptv_gui.py ~/ptv_test_folder/
-     
-or ::
-
-      LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH python pyptv_gui.py ~/ptv_test_folder/
-
-Whichever works, it is then useful to update the local ~/.bashrc file to define this every time one opens a shell.
-
-
-Building from source on Mac OS X:
----------------------------------
+Building `liboptv` from source on Mac OS X for C/C++ project
+------------------------------------------------------------
 
 Basically follow the Linux instructions, whenever the `apt-get` package manager is used, one can use MacPorts or Homebrew package managers. 
 
@@ -179,6 +183,7 @@ you can use the ``optv`` library in your code without further modifications. You
 can run ``cmake`` with parameters that would change the install locations (see
 below on the Windows install process). If you do so, remmember to make sure 
 that your compiler knows the path to the installed location.
+
 
 If nothing works, where I can get help?  
 ---------------------------------------
