@@ -44,277 +44,110 @@ The library is using `Check <https://github.com/libcheck/check>`_  framework for
 Installation
 ~~~~~~~~~~~~
 
-#. Both the library ``liboptv`` and the Python bindings (either `pbi` or `pyptv` or both) need to be installed, separately. 
+If you want to try the software but not really to get a development version, then you can use one of the two options: Virtual Machine appliance for VirtualBox software or Docker: 
 
-Below are instructions for building it and making it ready for use, either from
-a source distribution (a tarball with all necessary files) or directly from a 
-Git repository, on various platforms (Linux, Windows, Mac OS X) and using various options such as Virtual Machine or Docker. Note that it is possible to install and run the OpenPTV software in the cloud, e.g. on Google Cloud, AWS, Azure, etc. 
+Virtual Machine 
+~~~~~~~~~~~~~~~
 
-
-Use `pip`
-~~~~~~~~~
-
-If you plan to use only Python bindings, you can install `liboptv` with Python bindings by simply typing: 
-
-	pip install optv
-	
-The present version is 0.2.4 and it uses Numpy 1.16.1 (because of other restrictions, see below but if no GUI is used, then `numpy` version can be upgraded after the `pip` command)
-
+Ubuntu 18.04 with `pyptv`, see here: https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image
 
 Use Docker
 ~~~~~~~~~~
 
-Use the instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_
+This method requires to install first: Docker and X Server (for GUI); then, either pull the ready image or build locally the docker image. This installation works on Windows (tested on Win 10), Mac OS X (tested on Mojave 10.14.2) and Linux.  
 
-Basically it requires to install Docker and X Server (for GUI) and works on both Windows (tested on Win 10) and Mac OS X (tested on Mojave 10.14.2). 
+Please follow the detailed instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_ 
+
+
+
+
+Building development version and installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you want your own copy of the software, compiled and tested on your platform, then you first need to install Python 2.7. Note that we work on the Python 3 version but it is not ready yet. 
+
+
 
 Recommended Python distribuitons
 --------------------------------
 
-We recommend Anaconda for Windows and Linux (by Anaconda Inc.) and Canopy (Enthought Python Distribution) for Mac OS X. This miminizes the issues of cross-compiled packages. 
+Instead of using the Python 2.7 that comes with your system we recommend to install one of these distributions - later it will miminize the issues of cross-compiled packages.  
 
 
-Build from source 
------------------
-
-#. Create the directory that will contain everything::
-
-        mkdir ~/openptv && cd ~/openptv
-
-#. Install Check Unit testing framework::
-
-	 sudo apt-get install check
-
-#. Install Cmake::   
-
-	 sudo apt-get install cmake
-
-#. Install missing compilers::  
-
-	 sudo apt-get install build-essential
-
-#. Install git::  
-
-	sudo apt-get install git
-
-#. Install Canopy Python distribution (Python 2.7) ::
-
-	bash canopy_xxx.xxx.sh
-
-#. Run Canopy (either `~/Canopy/canopy` or `Applications -> Canopy`)
-
-#. Add `scikit-image` package through Canopy Package Manager
-
-#. Open Canopy Terminal through `Canopy -> Tools -> Canopy Terminal`
-
-#. Compile  OpenPTV library `liboptv` it using cmake and test it::  
-
-	 cd pyptv/openptv/liboptv 
-	 mkdir build && cd build
-	 cmake ../ -G "Unix Makefiles"
-	 make
-	 make verify
-	 
-see that all tests passed and then:  
-
-	sudo make install
-	 
-check that it's installed under `/usr/local/include` and `/usr/local/lib`. The library can be used now with C, Fortran or C++ project.
-
-#. Install Python bindings for the library (installs ```optv``` module)::
-
-	cd ~/../../py_bind
-	python setup.py prepare
-	python setup.py install
-	cd tests
-	nosetest 
-	
-58 tests should be running and passing
-	 
-#. Get 3D-PTV test folder and create the `res/` folder if missing ::
-
-	 cd ~
-	 git clone https://github.com/OpenPTV/test_cavity.git
-	 
-#. Get the GUI, for instance we explain about `pyptv` here that downloads also the OpenPTV library using `--recursive`::    
-
-	 git clone http://github.com/alexlib/pyptv.git pyptv
-	 
-#. Run the software using the `test_cavity` folder, if all works fine, that's it::
-
-	 cd pyptv/pyptv
-	 python pyptv_gui.py ../../test_cavity
+#. Anaconda Python distribution for Windows or Linux 
+#. Canopy (Enthought Python Distribution) for Mac OS X. 
 
 
-Building `liboptv` from source on Mac OS X for C/C++ project
-------------------------------------------------------------
 
-Basically follow the Linux instructions, whenever the `apt-get` package manager is used, one can use MacPorts or Homebrew package managers. 
+Installation on Windows 10
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Instead, one can simply download and install from source the a) `check` b) `cmake` c) `liboptv`, d) `pyptv` and install Anaconda Python distribution using the Mac OS package. For the very detailed set of instructions one can look at our `.travis.yml` and `install_macosx.sh` files in the `PyPTV <http://github.com/alexlib/pyptv>`_ repository. 
+We prepared a zipped package that contains all the necessary files (in binary wheel formats) for the installation on Windows 10 with Python 2.7 (the system one that runs from cmd.exe) or the Anaconda Python that runs from the Anaconda Command Prompt. 
 
-Installing directly from the source tree in Git is fast and simple, using 
-CMake. Before installation first we need to make sure that the dependencies are installed. A bit more detailed instructions for Ubuntu users are given below.  
+#. Download the file from the appropriate release: https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1
+#. Unzip, look inside this folder and use one of the CMD files, depending on your Python. For instance if it is Anaconda, then open the Anaconda Command prompt and type: 
 
-1. The tests of `liboptv` depend on the Check framework. You can either get it 
-   from your package manager (e.g. on Ubuntu `sudo apt-get install check'), 
-   or get the source package  from <http://check.sourceforge.net> and install according 
-   to the instructions in the Check package. Typically you would need to run 
-   the following commands in a shell::
+	$ ./install_pyptv_conda.cmd
 
-	./configure  
-	make  
-	make install  
 
-2. The build instructions for `liboptv` are processed with CMake. Again, this 
-   is available either from your package manager on Linux, or from <http://cmake.org>.
-   
-   After installing CMake, installing ``liboptv`` is a simple matter of running
-   the following commands in the ``liboptv/`` directory::
-   
-	cmake  
-	make  
-	make verify  
-	make install
+Installation on Linux
+~~~~~~~~~~~~~~~~~~~~~
+The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). The script can be found on this ![gist](https://gist.github.com/alexlib/71b30c1c87138b66bc4d53fdc14e002b). In this example we use Linux Python (and not Anaconda) because of some packages are better installed through pip rather than conda. Basically what it does it: 
 
-The install process will put the header files and libraries in default system
-paths (on linux, ``/usr/local/include`` and ``/usr/local/lib`` respectively), so that 
-you can use the ``optv`` library in your code without further modifications. You 
-can run ``cmake`` with parameters that would change the install locations (see
-below on the Windows install process). If you do so, remmember to make sure 
-that your compiler knows the path to the installed location.
+``
+apt-get update
+apt-get install -y python python-pip python-dev python-virtualenv swig git
+apt-get -y install python-qt4-gl libx11-dev g++ libpcre3 libpcre3-dev
+apt-get -y install libglu1-mesa libgl1-mesa-dev mesa-common-dev freeglut3-dev libgtk2.0-dev
+
+virtualenv --no-site-packages pyptv-env
+cd pyptv-env/
+source bin/activate
+
+pip install numpy==1.16.1 cython nose pyyaml fonttools
+pip install optv==0.2.4
+pip install enable
+pip install chaco
+
+git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
+cd pyptv 
+pip install . 
+cd tests
+nosetests --verbose
+
+cd ../../
+git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
+cd pyptv/pyptv/
+python pyptv_gui.py ../../test_cavity
+``
+
+Installing on Mac OS X
+~~~~~~~~~~~~~~~~~~~~~~
+
+The easiest way to install is to use Canopy Python Distribution for Mac OS X. It's free and it contains pre-compiled packages that is difficult to build (enable and chaco). 
+
+#. Download Canopy Python Distribution https://store.enthought.com/downloads/ and install it. Open the software and get into Tools -> Canopy Terminal
+#. Run the script: 
+
+``
+
+git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
+cd pyptv
+pip install numpy==1.16.1
+pip install . 
+cd tests
+nosetests --verbose
+
+cd ../../
+git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
+cd pyptv/pyptv/
+python pyptv_gui.py ../../test_cavity
+``
+
 
 
 If nothing works, where I can get help?  
 ---------------------------------------
 
 Send your build logs, description of the problem and details of the operating system, Python version, etc. to our Google group or forum: <https://groups.google.com/forum/#!forum/openptv>
- 	
-
-Getting started using Virtual Machine appliances
-------------------------------------------------
-
-Ubuntu 18.04 with `pyptv`, see here: https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image 
-
-
-
-
-Installing on Windows 7, 8.1 - OUTDATED, use Docker or Virtual Machine
-----------------------------------------------------------------------
-
-Unlike Linux and MacOS, which both implement POSIX standards (the Unix 
-standards base) and contain a default C build environment, Windows has 
-no such environment. Choices range from the bare-bones Windows SDK, whose 
-compiler is based on an outdated verion of C, to Visual Studio, a commercial 
-product with its own IDE and build toolchain. Aside from being costly and 
-proprietary, building with these compilers introduces compatibility problems
-with other programs. For example, building Python modules with VC 2010 from
-the Windows SDK fails because Python was build with VC 2008.
-
-All this setup is here to justify the fact that build instructions here are
-for the MingW compiler and the MSYS package of Unix tools for Windows. After a
-hard process of trial and error this was found to be the easiest, most 
-compatible solution.
-
-The MSYS package provides the GCC compiler (MinGW), a Bash command-line shell 
-and Unix build tools for Windows. It can be found here:
-<http://www.mingw.org/wiki/MSYS>
-
-Use the mingw-get-setup method of instalation. During the installation you will
-be asked to choose subpackages. If you don't know what you're doing, choose
-everything. 
-
-After installing MSYS MinGW according to the instructions on the MSYS site, you 
-will have a MinGW shell or MSYS shell in your start menu. Future instructions 
-assume that this shell is used. the installation instructions on the MSYS page 
-given above list some more steps you can and should do, so follow that page 
-carefully. In particular, don't forget to create the fstab file as instructed 
-there.
-
-Installing Check
-~~~~~~~~~~~~~~~~
-The tests of liboptv depend on the Check framework. You can get it from 
-<http://check.sourceforge.net>
-
-Some versions have problems with Windows. Version 0.9.8 is known to work. You can 
-get version 0.9.14 to work by editing `lib/libcompat.h` and commenting out or 
-removing lines 147-151.
-
-Installing Check is done roughly in the same way as on Linux, in the MSYS 
-shell::  
-
-	./configure --prefix /usr    
-	make  
-	make install  
-
-However, it is important to note where the install actually lands so that we can 
-help CMake find it. The Check library would be installed under the MSYS tree 
-which was set up when installing MSYS. The above installation is in what MSYS 
-refers to as ``/usr``. If your MSYS is installed on C:\MinGW, then Check would then 
-be in ``C:\MinGW\msys\1.0\lib\`` and ``C:\MinGW\msys\1.0\include`` or a similar 
-path. Make sure to verify this.
-
-Installing liboptv
-~~~~~~~~~~~~~~~~~~
-Now that Check is installed, installing liboptv is relatively straightforward.
-Since you are reading this file, you already have that package. enter the 
-``liboptv/`` subdirectory, create a directory under it called ``build/``, and change
-into it.
-
-For processing of build instructions, install CMake, from cmake.org.
-
-Now, in the Build directory, initialize cmake with the following command::
-    
-	cmake ../ -G "Unix Makefiles" -i  
-
-CMake will then ask you some questions about your system (accepting the 
-defaults is usually ok). Now and at any future step, you can erase the 
-contents of the build/ directory and start over. You can also regenerate
-makefiles with a simple `cmake ../` in a working build directory, since 
-CMake caches values you set before.
-
-Now that CMake is initialized, a command to generate Makefiles with all
-paths told in advance, would be::
-
-	cmake ../ -DCMAKE_INSTALL_PREFIX:PATH=/usr -DCMAKE_PREFIX_PATH=/c/MinGW/msys/1.0/  
-
-Note the path where Check was installed is specified, and be sure to adjust it
-if it is a different path in your system.
-
-Now to build and install liboptv, type::  
- 
-	make  
-	make install  
-
-This would install liboptv in what MSYS refers to as ``/usr``, which is 
-``C:\MinGW\msys\1.0\`` on my system. Any further program that is built using MSYS
-looks for this path by default so no further adjustment is necessary for using
-liboptv in your program, other than adding the include and link directives
-specified above. 
-
-However, on run time it appears that the pyd file we just installed looks for
-the accompanying DLL that was installed alongside it. Windows wants this DLL
-to be in the PATH it searches for executables. So the last step of installing
-on Windows is to modify the PATH environment variable so that it lists the 
-place where the liboptv DLL is installed (in our example, this would be 
-``C:\MinGW\msys\1.0\lib)``. This can be done by right-clicking Computer on the 
-start menu, choosing Properties -> Advanced system settings -> click Environment 
-Variables -> edit the PATH variable on the bottom list and add the DLL's location,
-separated by a semicolon (;) charachter from the directories already listed.
-
-
-Installing Python environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-We recommend using Enthought Canopy Distribution or Anaconda to get all the necessary packages. The main ones are:: 
-
-    * Numpy
-    * Scipy
-    * Cython
-    * ETS from Enthought (including Traits, Chaco and Pyface - most difficult to build yourself)
-    * PyQt
-
-
-
-For Windows 7 (8.1) there is an additional option to use pre-compiled binaries as explained here: `Installation on Windows 7 using MinGW <installation_windows_7_mingw32_precompiled.html>`_
 
