@@ -119,8 +119,8 @@ The installation on Linux follows very closely the Dockerfile (which is built on
 	python pyptv_gui.py ../../test_cavity
 
 
-Installing on Mac OS X
-~~~~~~~~~~~~~~~~~~~~~~
+Installation on Mac OS X
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 The easiest way to install is to use Canopy Python Distribution for Mac OS X. It's free and it contains pre-compiled packages that is difficult to build (enable and chaco). 
 
