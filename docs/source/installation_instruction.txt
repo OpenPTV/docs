@@ -59,8 +59,6 @@ This method requires to install first: Docker and X Server (for GUI); then, eith
 Please follow the detailed instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_ 
 
 
-
-
 Building development version and installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -85,41 +83,41 @@ Installation on Windows 10
 We prepared a zipped package that contains all the necessary files (in binary wheel formats) for the installation on Windows 10 with Python 2.7 (the system one that runs from cmd.exe) or the Anaconda Python that runs from the Anaconda Command Prompt. 
 
 #. Download the file from the appropriate release: https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1
-#. Unzip, look inside this folder and use one of the CMD files, depending on your Python. For instance if it is Anaconda, then open the Anaconda Command prompt and type: 
+#. Unzip, look inside this folder and use one of the CMD files, depending on your Python. For instance if it is Anaconda, then open the Anaconda Command prompt and type::  
 
 	$ ./install_pyptv_conda.cmd
 
 
 Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
-The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). The script can be found on this ![gist](https://gist.github.com/alexlib/71b30c1c87138b66bc4d53fdc14e002b). In this example we use Linux Python (and not Anaconda) because of some packages are better installed through pip rather than conda. Basically what it does it: 
+The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). The script can be found on this ![gist](https://gist.github.com/alexlib/71b30c1c87138b66bc4d53fdc14e002b). In this example we use Linux Python (and not Anaconda) because of some packages are better installed through pip rather than conda. Basically what it does it:: 
 
-```
-apt-get update
-apt-get install -y python python-pip python-dev python-virtualenv swig git
-apt-get -y install python-qt4-gl libx11-dev g++ libpcre3 libpcre3-dev
-apt-get -y install libglu1-mesa libgl1-mesa-dev mesa-common-dev freeglut3-dev libgtk2.0-dev
 
-virtualenv --no-site-packages pyptv-env
-cd pyptv-env/
-source bin/activate
+	apt-get update
+	apt-get install -y python python-pip python-dev python-virtualenv swig git
+	apt-get -y install python-qt4-gl libx11-dev g++ libpcre3 libpcre3-dev
+	apt-get -y install libglu1-mesa libgl1-mesa-dev mesa-common-dev freeglut3-dev libgtk2.0-dev
 
-pip install numpy==1.16.1 cython nose pyyaml fonttools
-pip install optv==0.2.4
-pip install enable
-pip install chaco
+	virtualenv --no-site-packages pyptv-env
+	cd pyptv-env/
+	source bin/activate
 
-git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
-cd pyptv 
-pip install . 
-cd tests
-nosetests --verbose
+	pip install numpy==1.16.1 cython nose pyyaml fonttools
+	pip install optv==0.2.4
+	pip install enable
+	pip install chaco
 
-cd ../../
-git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
-cd pyptv/pyptv/
-python pyptv_gui.py ../../test_cavity
-```
+	git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
+	cd pyptv 
+	pip install . 
+	cd tests
+	nosetests --verbose
+
+	cd ../../
+	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
+	cd pyptv/pyptv/
+	python pyptv_gui.py ../../test_cavity
+
 
 Installing on Mac OS X
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -127,24 +125,18 @@ Installing on Mac OS X
 The easiest way to install is to use Canopy Python Distribution for Mac OS X. It's free and it contains pre-compiled packages that is difficult to build (enable and chaco). 
 
 #. Download Canopy Python Distribution https://store.enthought.com/downloads/ and install it. Open the software and get into Tools -> Canopy Terminal
-#. Run the script: 
+#. Run the script::  
+	git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
+	cd pyptv
+	pip install numpy==1.16.1
+	pip install . 
+	cd tests
+	nosetests --verbose
 
-``
-
-git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
-cd pyptv
-pip install numpy==1.16.1
-pip install . 
-cd tests
-nosetests --verbose
-
-cd ../../
-git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
-cd pyptv/pyptv/
-python pyptv_gui.py ../../test_cavity
-``
-
-
+	cd ../../
+	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
+	cd pyptv/pyptv/
+	python pyptv_gui.py ../../test_cavity
 
 If nothing works, where I can get help?  
 ---------------------------------------
