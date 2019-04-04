@@ -94,7 +94,7 @@ Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
 The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). The script can be found on this ![gist](https://gist.github.com/alexlib/71b30c1c87138b66bc4d53fdc14e002b). In this example we use Linux Python (and not Anaconda) because of some packages are better installed through pip rather than conda. Basically what it does it: 
 
-``
+```
 apt-get update
 apt-get install -y python python-pip python-dev python-virtualenv swig git
 apt-get -y install python-qt4-gl libx11-dev g++ libpcre3 libpcre3-dev
@@ -119,7 +119,7 @@ cd ../../
 git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
 cd pyptv/pyptv/
 python pyptv_gui.py ../../test_cavity
-``
+```
 
 Installing on Mac OS X
 ~~~~~~~~~~~~~~~~~~~~~~
