@@ -126,6 +126,7 @@ The easiest way to install is to use Canopy Python Distribution for Mac OS X. It
 
 #. Download Canopy Python Distribution https://store.enthought.com/downloads/ and install it. Open the software and get into Tools -> Canopy Terminal
 #. Run the script::  
+
 	git clone --depth 1 -b master --single-branch https://github.com/alexlib/pyptv.git
 	cd pyptv
 	pip install numpy==1.16.1
@@ -137,6 +138,7 @@ The easiest way to install is to use Canopy Python Distribution for Mac OS X. It
 	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
 	cd pyptv/pyptv/
 	python pyptv_gui.py ../../test_cavity
+
 
 If nothing works, where I can get help?  
 ---------------------------------------
