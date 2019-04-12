@@ -88,9 +88,7 @@ We prepared a zipped package that contains all the necessary files (in binary wh
 
 Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
-The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). In this example we use Linux Miniconda https://docs.conda.io/en/latest/miniconda.html yet some packages are better installed through `pip` rather than `conda`: 
-
-
+The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). In this example we use Linux Miniconda https://docs.conda.io/en/latest/miniconda.html yet some packages are better installed through `pip` rather than `conda`::
 	
 	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 	
