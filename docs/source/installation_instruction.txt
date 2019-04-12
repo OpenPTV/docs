@@ -90,13 +90,12 @@ Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
 The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). In this example we use Linux Miniconda https://docs.conda.io/en/latest/miniconda.html yet some packages are better installed through `pip` rather than `conda`::
 	
-	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh  
+	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2  
+	export PATH="$HOME/miniconda2/bin:$PATH" 
 	
 	conda create -n pyptv_env python=2.7  
 	source activate pyptv_env  
-	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2  
-	export PATH="$HOME/miniconda2/bin:$PATH"  
-
 
 	apt-get update
 	apt-get install -y python python-pip python-dev python-virtualenv swig git
