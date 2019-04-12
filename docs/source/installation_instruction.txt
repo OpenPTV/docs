@@ -88,17 +88,21 @@ We prepared a zipped package that contains all the necessary files (in binary wh
 
 Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
-The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). The script can be found on this ![gist](https://gist.github.com/alexlib/71b30c1c87138b66bc4d53fdc14e002b). In this example we use Linux Python (and not Anaconda) because of some packages are better installed through pip rather than conda. Basically what it does it:: 
+The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). In this example we use Linux Miniconda https://docs.conda.io/en/latest/miniconda.html yet some packages are better installed through `pip` rather than `conda`: 
+
+
+	
+	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
+	
+	conda create -n pyptv_env python=2.7
+	source activate pyptv_env	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2
+	export PATH="$HOME/miniconda2/bin:$PATH"
 
 
 	apt-get update
 	apt-get install -y python python-pip python-dev python-virtualenv swig git
 	apt-get -y install python-qt4-gl libx11-dev g++ libpcre3 libpcre3-dev
 	apt-get -y install libglu1-mesa libgl1-mesa-dev mesa-common-dev freeglut3-dev libgtk2.0-dev
-
-	virtualenv --no-site-packages pyptv-env
-	cd pyptv-env/
-	source bin/activate
 
 	pip install numpy==1.16.1 cython nose pyyaml fonttools
 	pip install optv==0.2.4
@@ -113,8 +117,7 @@ The installation on Linux follows very closely the Dockerfile (which is built on
 
 	cd ../../
 	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
-	cd pyptv/pyptv/
-	python pyptv_gui.py ../../test_cavity
+	ptvgui ./test_cavity
 
 
 Installation on Mac OS X
