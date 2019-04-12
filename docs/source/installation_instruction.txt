@@ -92,9 +92,10 @@ The installation on Linux follows very closely the Dockerfile (which is built on
 	
 	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
 	
-	conda create -n pyptv_env python=2.7
-	source activate pyptv_env	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2
-	export PATH="$HOME/miniconda2/bin:$PATH"
+	conda create -n pyptv_env python=2.7  
+	source activate pyptv_env  
+	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2  
+	export PATH="$HOME/miniconda2/bin:$PATH"  
 
 
 	apt-get update
