@@ -69,7 +69,7 @@ If you want your own copy of the software, compiled and tested on your platform,
 Recommended Python distribuitons
 --------------------------------
 
-Instead of using the Python 2.7 that comes with your system we recommend to install one of these distributions - later it will miminize the issues of cross-compiled packages.  
+Instead of using the Python 3 that comes with your system we recommend to install one of these distributions - later it will miminize the issues of cross-compiled packages.  
 
 
 #. Anaconda Python distribution for Windows or Linux 
@@ -80,21 +80,29 @@ Instead of using the Python 2.7 that comes with your system we recommend to inst
 Installation on Windows 10
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We prepared a zipped package that contains all the necessary files (in binary wheel formats) for the installation on Windows 10 with Python 2.7 (the system one that runs from cmd.exe) or the Anaconda Python that runs from the Anaconda Command Prompt. 
+We prepared a zipped package that contains all the necessary files (in binary wheel formats) for the installation on Windows 10 with Python 3 (the system one that runs from cmd.exe) or the Anaconda Python that runs from the Anaconda Command Prompt. 
 
-#. Download the compressed file from the appropriate release: https://github.com/alexlib/pyptv/releases/download/windows-pyptv-0.1.1a/windows_installation_pyptv.zip
-#. Follow the instructions https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1a
+#. Download the compressed file from the appropriate release: https://github.com/alexlib/pyptv/releases/download/windows-pyptv-0.1.1b/windows_installation_pyptv3.zip
+#. Follow the instructions https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1b - open Anaconda Command Prompt (or PowerShell) and copy/paste these commands:: 
+
+	chcp 1255
+	conda create -y -n pyptv3 python=3 
+	conda activate pyptv3
+	pip install --no-index --find-links=whls/ -r requirements.txt
+	cd pyptv
+	python setup.py install 
+	python pyptv/pyptv_gui.py ..\test_cavity
 
 
 Installation on Linux
 ~~~~~~~~~~~~~~~~~~~~~
 The installation on Linux follows very closely the Dockerfile (which is built on top of Ubuntu). In this example we use Linux Miniconda https://docs.conda.io/en/latest/miniconda.html yet some packages are better installed through `pip` rather than `conda`::
 	
-	wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh  
-	bash ./Miniconda2-latest-Linux-x86_64.sh -b -p $HOME/miniconda2  
+	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  
+	bash ./Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda  
 	export PATH="$HOME/miniconda2/bin:$PATH" 
 	
-	conda create -n pyptv_env python=2.7  
+	conda create -n pyptv_env python=3  
 	source activate pyptv_env  
 
 	apt-get update
@@ -103,7 +111,7 @@ The installation on Linux follows very closely the Dockerfile (which is built on
 	apt-get -y install libglu1-mesa libgl1-mesa-dev mesa-common-dev freeglut3-dev libgtk2.0-dev
 
 	pip install numpy==1.16.1 cython nose pyyaml fonttools
-	pip install optv==0.2.4
+	pip install optv==0.2.6
 	pip install enable
 	pip install chaco
 
