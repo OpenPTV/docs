@@ -16,8 +16,8 @@ The OpenPTV contains of:
 
 The Python bindings allow the easy access to the C library. There are two Python GUI packages that are built around the Python bindings to allow the end-user to use it in a more intuitive way: 
 
-#. Python 2.7 with PyQt4 GUIs and command line scripts from Yosef Meller called The Particle Bureau of Investigation or `pbi <http://github.com/yosefm/pbi>`_ 
-#. Python 2.7 based GUI (using TraitsUI, Enthought Chaco, etc.) called `PyPTV <http://github.com/alexlib/pyptv>`_
+#. Python 3 with PyQt4 GUIs and command line scripts from Yosef Meller called The Particle Bureau of Investigation or `pbi <http://github.com/yosefm/pbi>`_ 
+#. Python 3 based GUI (using TraitsUI, Enthought Chaco, etc.) called `PyPTV <http://github.com/alexlib/pyptv>`_
 
 
 The overview
@@ -62,7 +62,7 @@ Please follow the detailed instructions on `PyPTV Dockerfiles <http://github.com
 Building development version and installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want your own copy of the software, compiled and tested on your platform, then you first need to install Python 2.7. Note that we work on the Python 3 version but it is not ready yet. 
+If you want your own copy of the software, compiled and tested on your platform, then you first need to install Python 3. Note that we work on the Python 3 version but it is not ready yet. 
 
 
 
@@ -100,7 +100,7 @@ The installation on Linux follows very closely the Dockerfile (which is built on
 	
 	wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh  
 	bash ./Miniconda3-latest-Linux-x86_64.sh -b -p $HOME/miniconda  
-	export PATH="$HOME/miniconda2/bin:$PATH" 
+	export PATH="$HOME/miniconda/bin:$PATH" 
 	
 	conda create -n pyptv_env python=3  
 	source activate pyptv_env  
