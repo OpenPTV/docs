@@ -82,8 +82,8 @@ Installation on Windows 10
 
 We prepared a zipped package that contains all the necessary files (in binary wheel formats) for the installation on Windows 10 with Python 3 (the system one that runs from cmd.exe) or the Anaconda Python that runs from the Anaconda Command Prompt. 
 
-#. Download the compressed file from the appropriate release: https://github.com/alexlib/pyptv/releases/download/windows-pyptv-0.1.1b/windows_installation_pyptv3.zip
-#. Follow the instructions https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1b - open Anaconda Command Prompt (or PowerShell) and copy/paste these commands:: 
+#. Download the compressed file from the appropriate release: https://github.com/alexlib/pyptv/releases/download/windows-pyptv-0.1.1a/windows_installation_pyptv3.zip
+#. Follow the instructions https://github.com/alexlib/pyptv/releases/tag/windows-pyptv-0.1.1a - open Anaconda Command Prompt (or PowerShell) and copy/paste these commands:: 
 
 	chcp 1255
 	conda create -y -n pyptv3 python=3 
