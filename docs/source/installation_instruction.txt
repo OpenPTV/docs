@@ -102,7 +102,10 @@ Install Python 3 (Anaconda or anything else)::
 Use our test case folder to see PyPTV in action like in video tutorials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git
+Download and run the test case:: 
+
+
+	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git  
 	pyptv test_cavity
 
 
