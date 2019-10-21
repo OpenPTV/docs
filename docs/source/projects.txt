@@ -1,5 +1,5 @@
-Research projects using OpenPTV
-===============================
+Research projects based on OpenPTV
+==================================
 
 + Advection and diffusion processes of complex-nozzle jet flows `[Link] <http://chamorro.mechse.illinois.edu/3d.htm>`_
 + Agglomerate breakage in turbulence [MISSING LINK]

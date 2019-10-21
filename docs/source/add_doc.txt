@@ -16,3 +16,16 @@ Detailed documentation
 + Report and tutorial by Dominik Bauer, *Particle Tracking Velocimetry with OpenPTV*, :download:`[Link] <../add_docs/PTV_report-Dominik Bauer.pdf>`
 + Coordinate systems used in OpenPTV by Yosef Meller :download:`[Link] <../add_docs/ptv_coordinates.pdf>`
 + Skew-midpoint algorithm by Yosef Meller :download:`[Link] <../add_docs/skew_midpoint.pdf>`
+
+
+.. toctree::
+   :maxdepth: 1
+   
+   PTV_files
+   benchmark
+   calibration_files
+   dumbbell_calibration
+   splitter
+   ptv_coordinates
+   refactor_plan
+   projects

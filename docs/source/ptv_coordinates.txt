@@ -25,7 +25,7 @@ Spatial Coordinates
 There are two types of spatial (3D) coordinate systems involved in
 3D-PTV: the Global Coordinates, and each camera’s Local Frame.
 
-The\ * Global Coordinates *\ are the base coordinate system. Everything
+The *Global Coordinates* are the base coordinate system. Everything
 in the PTV system lies within it. Although this system is initially
 arbitrary, it is commonly expressed in millimeters for small to medium
 experiments and is determined by the arbitrarily defined positions of
@@ -64,11 +64,13 @@ Coordinates, the Metric Coordinates, and the Flat Coordinates, which
 account for camera distortions. Their relationship is described in this
 section, and summarized in Figure .
 
-.. figure:: coord_transf
+.. figure:: ../images/coord_transf.png
    :alt: Image coordinate systems[fig:Image-coordinate-systems]
 
    Image coordinate systems[fig:Image-coordinate-systems]
-The *Pixel Coordinates* are the most obvious - they are the row and
+
+
+The *Pixel Coordinates* are the most obvious, they are the row and
 column in the image data matrix. The origin is at the top-left of the
 image, the y axis points down, the x axis points right, and the units
 are pixels. The *Metric Coordinates* are a simple linear transformation

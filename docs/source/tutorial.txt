@@ -18,7 +18,7 @@ Please, see our screencasts for the quick overview and the step-by-step tutorial
 - Tutorial 2: <http://www.youtube.com/watch?v=_JxFxwVDSt0>
 - Tutorial 3: <http://www.youtube.com/watch?v=z1eqFL5JIJc>
 
-If you want to practice, install the software and **download** the necessary files from :ref:`downloads <downloads>` page. 
+If you want to practice, install the software and **download** the necessary files from the http://github.com/openptv/test_cavity. 
 
 
 
@@ -28,7 +28,7 @@ Tutorial
 
 New experiment:
 
-* For a new set of experiments open a new folder. The file should contai the following sub-folders: ``cal``: for calibration, ``parameters``, ``img`` and ``res``. For example, a clean file for example (copy it and rename the file) is in ``ptv/fresh_test``.
+* For a new set of experiments open a new folder. The file should contain the following sub-folders: ``cal``: for calibration, ``parameters``, ``img`` and ``res``. For example, a clean file for example (copy it and rename the file) is in ``ptv/fresh_test``.
 
 Calibration files:
 ^^^^^^^^^^^^^^^^^^^^^
