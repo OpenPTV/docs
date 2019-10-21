@@ -17,8 +17,8 @@ import sys, os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-sys.path.append(os.path.abspath('../../pyptv_gui/'))
-sys.path.append(os.path.abspath('../../src_c/'))
+sys.path.append(os.path.abspath('/home/user/Downloads/pyptv/pyptv/pyptv/'))
+sys.path.append(os.path.abspath('/home/user/openptv/openptv/py_bind/liboptv/src/'))
 
 
 # -- General configuration -----------------------------------------------------
