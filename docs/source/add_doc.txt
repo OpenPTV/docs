@@ -14,5 +14,5 @@ Detailed documentation
 + Tutorial written by Hristo Goumnerov  :download:`[Link] <../add_docs/OpenPTV Manual - first draft.docx>`
 + Master thesis, *three-dimensional particle tracking velocimetry for turbulence applications*, written by Jin-Tae Kim in 2015 `[Website Link] <http://chamorro.mechse.illinois.edu/3d.htm>`_
 + Report and tutorial by Dominik Bauer, *Particle Tracking Velocimetry with OpenPTV*, :download:`[Link] <../add_docs/PTV_report-Dominik Bauer.pdf>`
-
-
++ Coordinate systems used in OpenPTV by Yosef Meller :download:`[Link] <../add_docs/ptv_coordinates.pdf>`
++ Skew-midpoint algorithm by Yosef Meller :download:`[Link] <../add_docs/skew_midpoint.pdf>`
