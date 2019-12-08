@@ -41,8 +41,28 @@ details.
 
 The library is using `Check <https://github.com/libcheck/check>`_  framework for the unit tests and Cmake project for the build. We recommend installing both software packages, however it is not obligatory, you may skip the relevant parts if you're not going to develop or test the library.
 
-Installation
-~~~~~~~~~~~~
+
+Installation of PyPTV (the GUI, including `liboptv`) called PyPTV
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Install Python 3 (Anaconda or anything else):: 
+
+	python -m pip install --upgrade pip
+	pip install numpy
+	pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
+	
+
+* note that you need a C compiler, on Mac OS X and Linux it's included as gcc or clang, but on Windows you might want to install one https://wiki.python.org/moin/WindowsCompilers 
+
+Use our test case folder to see PyPTV in action like in video tutorials
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Download and run the test case:: 
+
+
+	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git  
+	pyptv test_cavity
+
 
 If you want to try the software but not really to get a development version, then you can use one of the two options: Virtual Machine appliance for VirtualBox software or Docker: 
 
@@ -87,26 +107,6 @@ Install Python 3 (Anaconda or anything else)::
 Now you can proceed to Python shell and try:: 
 
 	import optv
-
-Installation of Python GUI (including `liboptv`) called PyPTV
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Install Python 3 (Anaconda or anything else):: 
-
-	python -m pip install --upgrade pip
-	pip install numpy
-	pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
-	
-
-
-Use our test case folder to see PyPTV in action like in video tutorials
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Download and run the test case:: 
-
-
-	git clone --depth 1 -b master --single-branch https://github.com/OpenPTV/test_cavity.git  
-	pyptv test_cavity
 
 
 If nothing works, where I can get help?  
