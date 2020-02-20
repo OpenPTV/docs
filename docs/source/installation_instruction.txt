@@ -66,11 +66,6 @@ Download and run the test case::
 
 If you want to try the software but not really to get a development version, then you can use one of the two options: Virtual Machine appliance for VirtualBox software or Docker: 
 
-Virtual Machine 
-~~~~~~~~~~~~~~~
-
-Ubuntu 18.04 with `pyptv`, see here: https://github.com/alexlib/pyptv/wiki/Getting-started-using-VirtualBox-Linux-(Ubuntu-18.04)-image
-
 Try Docker
 ~~~~~~~~~~
 
