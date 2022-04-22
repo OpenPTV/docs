@@ -5,6 +5,7 @@ Detailed documentation
 =======================
 
 + The original manual :download:`[Link] <../add_docs/ptvmanual.pdf>` and the reference guide :download:`[Link] <../add_docs/reference_guide.pdf>` written by Jochen Willneff in 2003 (Read it first).
++ Thesis of Maas `[Link to PDF] <https://openptv-python.readthedocs.io/en/latest/_downloads/b9b04c2b8a7dc124461a70138ce3c871/ptvmanual.pdf>`_
 + Thesis of Jochen Willneff that explains most of the theory behind the 3D-PTV `[Link] <https://www.ethz.ch/content/dam/ethz/special-interest/baug/igp/igp-dam/documents/PhD_Theses/82.pdf>`_
 + Multi-plane calibration manual by Lorenzo del Castello, TU/e. :download:`[Link] <../add_docs/calibTutorial.pdf>`
 + Dumbbell (or wand) calibration, :doc:`dumbbell_calibration`
