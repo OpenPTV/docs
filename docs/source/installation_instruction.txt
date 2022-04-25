@@ -16,7 +16,7 @@ The OpenPTV contains of:
 
 The Python bindings allow the easy access to the C library. There are two Python GUI packages that are built around the Python bindings to allow the end-user to use it in a more intuitive way: 
 
-#. Python 3 with PyQt4 GUIs and command line scripts from Yosef Meller called The Particle Bureau of Investigation or `pbi <http://github.com/yosefm/pbi>`_ 
+#. Python 3 with PyQt GUIs and command line scripts from Yosef Meller called The Particle Bureau of Investigation or `pbi <http://github.com/yosefm/pbi>`_ 
 #. Python 3 based GUI (using TraitsUI, Enthought Chaco, etc.) called `PyPTV <http://github.com/alexlib/pyptv>`_
 
 
@@ -42,8 +42,8 @@ details.
 The library is using `Check <https://github.com/libcheck/check>`_  framework for the unit tests and Cmake project for the build. We recommend installing both software packages, however it is not obligatory, you may skip the relevant parts if you're not going to develop or test the library.
 
 
-Installation of PyPTV (the GUI, including `liboptv`) called PyPTV
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation of PyPTV (the GUI, including `liboptv`) 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Install Python 3 (Anaconda or anything else):: 
 
@@ -64,14 +64,14 @@ Download and run the test case::
 	pyptv test_cavity
 
 
-If you want to try the software but not really to get a development version, then you can use one of the two options: Virtual Machine appliance for VirtualBox software or Docker: 
+If you want to try the software but not really to get a development version, you can use our docker image:
 
 Try Docker
 ~~~~~~~~~~
 
-This method requires to install first: Docker and X Server (for GUI); then, either pull the ready image or build locally the docker image. This installation works on Windows (tested on Win 10), Mac OS X (tested on Mojave 10.14.2) and Linux.  
+Install Docker on Linux or Docker Desktop on Mac OS X and Windows. You can pull the ready image or build locally the docker image. This installation works on any platform through the noVNC browser. It already contains the test folder. Follow the instructions here:
 
-Please follow the detailed instructions on `PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_ 
+`OpenPTV + PyPTV Dockerfiles <http://github.com/alexlib/dockerfiles>`_ 
 
 
 Building development version and installation
