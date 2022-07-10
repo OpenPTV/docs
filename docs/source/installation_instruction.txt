@@ -45,7 +45,18 @@ The library is using `Check <https://github.com/libcheck/check>`_  framework for
 Installation of PyPTV (the GUI, including `liboptv`) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install Python 3 (Anaconda or anything else):: 
+On the new Apple Macbook M1 machines, it is recommended to use Enthought Python Distribution (edm) and not Anaconda Python Distribution. 
+Run the following lines from the:: 
+
+	edm install numpy
+	edm shell 
+	edm install pip
+	python -m pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
+	
+Then run `pyptv` from the `edm shell` 
+	
+
+On Linux, Windows, etc. install Python 3 (it is easier with Anaconda):: 
 
 	python -m pip install --upgrade pip
 	pip install numpy
