@@ -59,7 +59,7 @@ Then run `pyptv` from the `edm shell`
 On Linux, Windows, etc. install Python 3 (it is easier with Anaconda):: 
 
 	python -m pip install --upgrade pip
-	pip install numpy
+	pip install numpy"<1.24"
 	pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
 	
 
