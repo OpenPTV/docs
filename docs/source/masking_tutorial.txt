@@ -1,0 +1,31 @@
+﻿================
+Masking tutorial
+================
+
+
+.. toctree::
+   :maxdepth: 1
+   
+   
+   
+Tutorial
+---------
+
+How to use masking: 
+
+1. in the Main parameters GUI check the box `Subtract Mask`
+2. add the base name in the form `mask_#.tif` or `img/<your_filename>_#.tif` or similar where `#` would be replaced in software by the camera number
+3. store in the working folder the file per camera, i.e., mask_1.tif, mask_2.tif ... and so on
+
+In the parameters, the folder should appear JSON file - but only in the corresponding Run
+
+
+ |image0|
+
+.. |image0| image:: ../images/masking.png
+
+
+
+
+    
+

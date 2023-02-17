@@ -107,7 +107,7 @@ Data Processing
 + Establish stereoscopic correspondences
 + Determine 3-D particle coordinates
 + Storage of all relevant object and image space information
-+ Perform tracking in 2-D image and 3-D object space
++ Perform tracking in 2D image and 3-D object space
 
 
 A crucial point is the handling of ambiguities occurring in different
@@ -149,12 +149,12 @@ Potential
   trajectories for Lagrangian analysis
 + A system based on 4 CCD progressive scan cameras (digitized to 640 x
   480 pixels) is capable of tracking more than 1000 particles
-+ The ralative accuracy of the velocity vectors is ~ 1:4000 of the
++ The relative accuracy of the velocity vectors is ~ 1:4000 of the
   field of view
 
 
 
-Real time image processing schemes
+Real-time image processing schemes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
@@ -169,21 +169,14 @@ Collaboration
 -------------
 
 
++ `Turbulence Structure Laboratory, Tel Aviv University <https://turbulencelab.sites.tau.ac.il>`_
 + `Institute of Environmental Engineering, ETH Zurich <http://www.ifu.ethz.ch/>`_
 + `Institute of Photogrammetry, ETH Zurich <http://www.igp.ethz.ch/photogrammetry/>`_
-+ `Turbulence Structure Laboratory, Tel Aviv University <http://www.eng.tau.ac.il/turbulencelab/>`_
-+ `Technical University Eidnhoven, Applied Physics <http://www.phys.tue.nl/>`_
++ `Dr. Ron Shnapp laboratory, Ben Gurion University <https://ronshnapp.wordpress.com/>`_
++ `Technical University Eindhoven, Applied Physics <http://www.phys.tue.nl/>`_
 + `Riso National Laboratory <http://en.wikipedia.org/wiki/Ris%C3%B8_DTU_National_Laboratory_for_Sustainable_Energy>`_
 + `International Collaboration for Turbulence Research, ICTR <http://www.ictr.eu/>`_
 + `COST action "Particles in Turbulence" <http://mp0806.cineca.it/eindhoven/>`_ 
-
-
-We organize the PTV benchmarking (open, free and user-friendly, we'll
-publish only what you want to be published) to make our
-algorithms validated versus each other and improve our particle
-tracking abilities worldwide. Write to `Alex`_ if you want to **join**
-with your version of particle tracking software or with your data
-test case (e.g. that you find difficult to track or to improve).
 
 
 See also
@@ -194,7 +187,6 @@ See also
 
 References
 -----------
-
 
 + Maas, H.-G., 1992. Digitale Photogrammetrie in der dreidimensionalen
   Strömungsmesstechnik, ETH Zürich Dissertation Nr. 9665
@@ -217,9 +209,8 @@ References
   301 - 313.
 + Kreizer Mark, Ratner David and Alex Liberzon Real-time image
   processing for particle tracking velocimetry, Experiments in Fluids,
-  Volume 48, Issue 1, pp.105-110,
-  `http://adsabs.harvard.edu/abs/2010ExFl...48..105K`_
-+ Meller, Y. & Liberzon, A., (2016). Particle Data Management Software for 3DParticle Tracking Velocimetry and Related Applications – The Flowtracks Package. Journal of Open Research Software. 4(1), p.e23. DOI: `http://doi.org/10.5334/jors.101`_
+  Volume 48, Issue 1, pp.105-110
++ Meller, Y. & Liberzon, A., (2016). Particle Data Management Software for 3DParticle Tracking Velocimetry and Related Applications – The Flowtracks Package. Journal of Open Research Software. 4(1), 23.
 
 
 .. |3dptv| image:: ../images/3dptv.png

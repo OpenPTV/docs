@@ -18,6 +18,7 @@ Contents:
    installation_instruction
    
    tutorial
+   masking_tutorial
    add_doc
    
    developers
