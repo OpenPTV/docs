@@ -9,7 +9,7 @@ library, named ``liboptv`` and develop several interfaces, combining it with the
 and post-processing routines using Python/NumPy/SciPy/PIL/Matplotlib/etc. See the existing repositories on http://github.com/OpenPTV
 
 
-About 3D-PTV measurement method
+About the 3D-PTV measurement method
 =========================================
 
 `3D-PTV in a nutshell  <http://www.slideshare.net/guest290904/3dptv-particle-tracking-velocimetry>`_
@@ -17,10 +17,10 @@ About 3D-PTV measurement method
 Objectives of the 3D-PTV experimental method
 ---------------------------------------------
 
-We are convinced that the three dimensional tracking method that provides otherwise inaccessible information
+We are convinced that the three-dimensional tracking method that provides otherwise inaccessible information
 about the flow can make an impact in various applications, allowing for the
 researchers and industry to get a deeper insight into their flows.
-Most of the flows are highly complex and turbulent and only few of
+Most of the flows are highly complex and turbulent and only a few of
 them can get a limited low-dimensional or analytical description that
 explains the different flow phenomena. Experimental research is
 inevitable in observing the flow and discovering new phenomena, in
@@ -31,17 +31,17 @@ Introduction
 ------------
 
 The **3D Particle Tracking Velocimetry** (3D-PTV) offers a flexible
-technique for the determination of velocity fields in flows. It is
+technique for the determination of velocity fields. It is
 based on the visualization of a flow with small, neutrally buoyant
-particles and a stereoscopic recording image sequences of the
-particles. During 80's-90's the successful research work performed
+particles and stereoscopic recording image sequences of the
+particles. During the 80's-90's the successful research work performed
 by the Institute of Geodesy and Photogrammetry at ETH Zurich led to an
 operational and reliable measurement tool used in hydrodynamics and
 space applications. In cooperation with the Institute of
-Hydromechanics and Water Resources Management at ETH Zurich further
+Hydromechanics and Water Resources Management at ETH Zurich, further
 progress has been achieved in the improvement of the existing hard-
 and software solutions. Regarding the hardware setup the acquisition
-system used at the ETH Zurich was upgraded from offline to online
+system used at ETH Zurich was upgraded from offline to online
 image digitization.
 
 
@@ -54,21 +54,21 @@ Data acquisition
 
 + Seed a flow with tracer particles
 + Illuminate a 3-D observation volume inside the flow by a pulsed
-  lightsource
+  light source
 + Image the scene by 2 (or rather 3-4) synchronized
-+ Length of image sequences depending from imaging rate and storage
++ Length of image sequences depending on imaging rate and storage
   device
 
 
-The system used at the ETH Zurich was upgraded from offline to online
+The system used at ETH Zurich was upgraded from offline to online
 image digitization. In the previous system, the image sequences were
-firstly recorded on analogue videotapes and digitized afterwards,
-while in the new system two frame grabbers (Matrox Genesis) are used
+first recorded on analogue videotapes and digitized afterwards,
+while in the new system, two frame grabbers (Matrox Genesis) are used
 to provide online digitization and storage. The length of the recorded
-digital image sequences is nowadays restricted by the storage device
+digital image sequences is nowadays restricted by the storage device's
 capabilities. The data rate for a 60 Hz full-frame camera with a
 resolution of 640 x 480 pixels is about 19 MB/sec, and hence in an
-experiment which lasts for 1 minute four cameras deliver a total
+experiment which lasts for 1 minute, four cameras deliver a total
 amount of about 4.5 GB image data.
 
 
@@ -82,7 +82,7 @@ tasks:
   dresden.de/fghgipf/forschung/material/publ2000/JoWi_paper.pdf>`_) and
   the exact geometric modelling ("multimedia geometry" - each beam from
   a particle to the sensor passes the three optical media water, glass,
-  air with different refractive indices, which leads to a twice broken
+  air with different refractive indices, which leads to a twice-broken
   beam).
 + Image preprocessing: perform highpass filtering due to non-
   uniformities in the background illumination
@@ -91,7 +91,7 @@ tasks:
 + Establish stereoscopic correspondences
 + Determine 3-D particle coordinates
 + Storage of all relevant object and image space information
-+ Perform tracking in 2-D image and 3-D object space
++ Perform tracking in 2D image and 3D object space
 
 
 
@@ -110,31 +110,31 @@ Data Processing
 + Perform tracking in 2-D image and 3-D object space
 
 
-A crucial point is the handling of ambiguities occuring in different
+A crucial point is the handling of ambiguities occurring in different
 steps of the data processing chain:
 
 
 + Particles may overlap in the images. For that reason a modified
-  thresholding/centroid operator was developed searching for local
+  thresholding/centroid operator was developed to search for local
   maxima in the images and dividing particle images at local minima
   under certain conditions.
-+ Due to the fact that particle images cannot be distinguished by
-  features like size, shape or color, the only criterion for the
++ Because particle images cannot be distinguished by
+  features like size, shape or colour, the only criterion for the
   establishment of stereoscopic correspondences is the epipolar line.
   Ambiguities occur when multiple candidates are found in a search area
   defined by the epipolar line. These ambiguities can only be solved if
-  a third (or even a fourth) camera is being used.
+  a third (or even a fourth) camera is used.
 + Ambiguities may also occur in the tracking procedure. Criteria like
   local correlation and smoothness of the velocity field are employed to
   solve these criteria.
 
 
-Another important issue is an accurate calibration of the system
+Another important issue is the accurate calibration of the system
 (determination of camera exterior and interior orientations, lens
 distortion and further disturbances) and the exact geometric modelling
 ("multimedia geometry" - each beam from a particle to the sensor
-passes the three optical media water, glass, air with different
-refractive indices, which leads to a twice broken beam).
+passes the three optical media water, glass, and air with different
+refractive indices, which leads to a twice-broken beam).
 
 
 
@@ -143,7 +143,7 @@ Potential
 ---------
 
 
-+ Truely 3-D technique: all three components of the velocity field are
++ Truly 3-D technique: all three components of the velocity field are
   determined in a 3-D observation volume
 + Delivers 3-D vector field for Eulerian analysis plus 3-D
   trajectories for Lagrangian analysis
@@ -179,10 +179,10 @@ Collaboration
 
 
 We organize the PTV benchmarking (open, free and user-friendly, we'll
-publish only what you want to be published) in order to make our
+publish only what you want to be published) to make our
 algorithms validated versus each other and improve our particle
 tracking abilities worldwide. Write to `Alex`_ if you want to **join**
-with your own version of particle tracking software or with your data
+with your version of particle tracking software or with your data
 test case (e.g. that you find difficult to track or to improve).
 
 
@@ -199,10 +199,10 @@ References
 + Maas, H.-G., 1992. Digitale Photogrammetrie in der dreidimensionalen
   Strömungsmesstechnik, ETH Zürich Dissertation Nr. 9665
 + Malik, N., Dracos, T., Papantoniou, D., 1993. Particle Tracking in
-  three dimensional turbulent flows - Part II: Particle tracking.
+  three-dimensional turbulent flows - Part II: Particle tracking.
   Experiments in Fluids Vol. 15, pp. 279-294
 + Maas, H.-G., Grün, A., Papantoniou, D., 1993. Particle Tracking in
-  three dimensional turbulent flows - Part I: Photogrammetric
+  three-dimensional turbulent flows - Part I: Photogrammetric
   determination of particle coordinates. Experiments in Fluids Vol. 15,
   pp. 133-146
 + Srdic, Andjelka, 1998. Interaction of dense particles with

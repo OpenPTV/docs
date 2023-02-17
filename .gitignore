@@ -1,0 +1,5 @@
+
+html/*
+*.doctree
+*.pickle
+*.json

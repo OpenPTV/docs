@@ -1,8 +1,8 @@
  .. _add_soft:
 
-=========================
+============================
 Additional software projects
-=========================
+============================
 
 The command line version of the 3D-PTV is the only derivative that is distributed under the same license. Other packages will be slowly adopted by the 3D-PTV project but these are developed by the independent authors. Please, pay attention to their license files
 
