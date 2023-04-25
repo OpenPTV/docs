@@ -65,6 +65,13 @@ On Linux, Windows, etc. install Python 3 (it is easier with Anaconda)::
 
 * note that you need a C compiler, on Mac OS X and Linux it's included as gcc or clang, but on Windows you might want to install one https://wiki.python.org/moin/WindowsCompilers 
 
+* note that sometimes your platform and your Python version does not match the packages we prepared upfront in the binary form (that does not require compilation), e.g. we have for Windows 10, Python 3.9 but not Python 3.11, or we might have one for Linux, but not for all distros. 
+
+* if you experienced the error that relates to `pyface.color.qt4`, you might want to manually to the `pyptv_gui.py` file these two lines:
+
+	from traits.etsconfig.api import ETSConfig  
+	ETSConfig.toolkit = 'qt4'  
+
 Use our test case folder to see PyPTV in action like in video tutorials
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
