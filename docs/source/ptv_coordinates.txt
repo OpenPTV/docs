@@ -6,10 +6,8 @@ Coordinate Systems in 3D-PTV Algorithms
    :format: html latex
 ..
 
-#1#2
-
 The 3D-PTV method of finding 3D positions of particles in flow has an
-easy to understand general scheme: use 2D images of particles taken from
+easy-to-understand general scheme: use 2D images of particles taken from
 several distinct points of view for calculating a 3D position of the
 observed particles. The implementation of this idea, however, is
 somewhat more involved. The basic idea already implies the existence of
@@ -81,7 +79,7 @@ that the rightmost pixel x-coordinate in the Metric system is half the
 sensor width in millimeters. The sensor width and pixel size may be
 found in camera data sheets.
 
-For example: For a sensor of :math:`1280\times1024` pixels (on the x and
+For example: For a sensor of :math:`1280 \times 1024` pixels (on the x and
 y direction respectively), each :math:`\unt{0.014}{\milli\metre}` to a
 side, Table [tab:pixel-metric] shows the pixel and metric coordinates of
 the image corners.
