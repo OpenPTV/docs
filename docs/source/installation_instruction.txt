@@ -6,11 +6,12 @@ Installation instructions
 
 TL;DR
 -----
-	conda create -n openptv python=3.11
-	conda activate openptv
-	pip install pyptv
-	git clone https://github.com/openptv/test_cavity 
-	pyptv test_cavity
+
+	conda create -n openptv python=3.11  
+	conda activate openptv  
+	pip install pyptv  
+	git clone https://github.com/openptv/test_cavity  
+	pyptv test_cavity  
 
 
 
