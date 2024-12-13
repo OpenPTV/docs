@@ -4,6 +4,15 @@
 Installation instructions
 =========================
 
+TL;DR
+-----
+	conda create -n openptv python=3.11
+	conda activate openptv
+	pip install pyptv
+	git clone https://github.com/openptv/test_cavity 
+	pyptv test_cavity
+
+
 
 Introduction
 ------------
@@ -45,8 +54,9 @@ The library is using `Check <https://github.com/libcheck/check>`_  framework for
 Installation of PyPTV (the GUI, including `liboptv`) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the new Apple Macbook M1 machines, it is recommended to use Enthought Python Distribution (edm) and not Anaconda Python Distribution. 
-Run the following lines from the:: 
+On the new Apple Macbook M1 machines, it is recommended that Enthought Python Distribution (edm) be used and not Anaconda Python Distribution. It runs Python 3.8 but has all the necessary libraries like enable, chaco, pyface, in binary precompiled format. 
+
+Run the following lines in the EDM console :: 
 
 	edm install numpy
 	edm shell 
@@ -55,15 +65,14 @@ Run the following lines from the::
 	
 Then run `pyptv` from the `edm shell` 
 	
+On Linux, Windows, and older Apple machines install Python 3.11, we typically use Miniconda or similar:: 
 
-On Linux, Windows, etc. install Python 3 (it is easier with Anaconda):: 
-
-	python -m pip install --upgrade pip
-	pip install numpy"<1.24"
+	conda create -n openptv python=3.11
+	conda activate openptv
 	pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
 	
 
-* note that you need a C compiler, on Mac OS X and Linux it's included as gcc or clang, but on Windows you might want to install one https://wiki.python.org/moin/WindowsCompilers 
+* note that you need a C compiler, on Mac OS X and Linux, it's included as `gcc` or `clang`, but on Windows, you might want to install on https://wiki.python.org/moin/WindowsCompilers 
 
 * note that sometimes your platform and your Python version does not match the packages we prepared upfront in the binary form (that does not require compilation), e.g. we have for Windows 10, Python 3.9 but not Python 3.11, or we might have one for Linux, but not for all distros. 
 
@@ -99,10 +108,10 @@ If you want your own copy of the software, compiled and tested on your platform,
 
 
 
-Recommended Python distribuitons
+Recommended Python distributions
 --------------------------------
 
-Instead of using the Python 3 that comes with your system we recommend to install one of these distributions - later it will miminize the issues of cross-compiled packages.  
+Instead of using the Python 3 that comes with your system, we recommend installing one of these distributions - later, it will minimize the issues of cross-compiled packages.  
 
 
 #. Anaconda Python distribution for Windows or Linux 
@@ -125,5 +134,5 @@ Now you can proceed to Python shell and try::
 If nothing works, where I can get help?  
 ---------------------------------------
 
-Send your build logs, description of the problem and details of the operating system, Python version, etc. to our Google group or forum: <https://groups.google.com/forum/#!forum/openptv>
+Send your build logs, description of the problem, and details of the operating system, Python version, etc., to our Google group or forum: <https://groups.google.com/forum/#!forum/openptv>
 
