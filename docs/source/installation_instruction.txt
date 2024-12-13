@@ -6,6 +6,7 @@ Installation instructions
 
 TL;DR
 -----
+With the modern Python 3.11 and `enable` 6.0.0 installation is quite simpler::
 
 	conda create -n openptv python=3.11  
 	conda activate openptv  
