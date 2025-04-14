@@ -6,7 +6,7 @@ Installation instructions
 
 TL;DR
 -----
-With the modern Python 3.11 and `enable` 6.0.0 installation is quite simpler::
+With the modern Python 3.11 and `enable` 6.0.0 installation is quite simple::
 
 	conda create -n openptv python=3.11  
 	conda activate openptv  
@@ -15,15 +15,13 @@ With the modern Python 3.11 and `enable` 6.0.0 installation is quite simpler::
 	pyptv test_cavity  
 
 
-
 Introduction
 ------------
-
 
 The OpenPTV contains of: 
 
 #. Core library written in C, called `liboptv <http://github.com/OpenPTV/openptv/tree/master/liboptv>`_
-#. Python/Cython bindings, shipped together with the `liboptv`
+#. Python/Cython bindings, shipped together with the `liboptv`, inside `py_bind` directory
 
 The Python bindings allow the easy access to the C library. There are two Python GUI packages that are built around the Python bindings to allow the end-user to use it in a more intuitive way: 
 
@@ -53,10 +51,10 @@ details.
 The library is using `Check <https://github.com/libcheck/check>`_  framework for the unit tests and Cmake project for the build. We recommend installing both software packages, however it is not obligatory, you may skip the relevant parts if you're not going to develop or test the library.
 
 
-Installation of PyPTV (the GUI, including `liboptv`) 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Installation of PyPTV GUI including `liboptv`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On the new Apple Macbook M1 machines, it is recommended that Enthought Python Distribution (edm) be used and not Anaconda Python Distribution. It runs Python 3.8 but has all the necessary libraries like enable, chaco, pyface, in binary precompiled format. 
+On the new *Apple Macbook M1* machines, it is recommended that Enthought Python Distribution (edm) be used and not Anaconda Python Distribution. It runs Python 3.8 but has all the necessary libraries like enable, chaco, pyface, in binary precompiled format. 
 
 Run the following lines in the EDM console :: 
 
@@ -69,12 +67,20 @@ Then run `pyptv` from the `edm shell`
 	
 On Linux, Windows, and older Apple machines install Python 3.11, we typically use Miniconda or similar:: 
 
-	conda create -n openptv python=3.11
-	conda activate openptv
-	pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple
+	conda create -n pyptv python=3.11 --yes
+	conda activate pyptv
+	pip install pyptv
 	
 
-* note that you need a C compiler, on Mac OS X and Linux, it's included as `gcc` or `clang`, but on Windows, you might want to install on https://wiki.python.org/moin/WindowsCompilers 
+
+if the last command fails, try: `pip install pyptv --index-url https://pypi.fury.io/pyptv --extra-index-url https://pypi.org/simple`
+
+
+
+Building from source
+~~~~~~~~~~~~~~~~~~~
+
+Note that if you build from source, you will need a C compiler, on Mac OS X and Linux, it's included as `gcc` or `clang`, but on Windows, you might want to install on https://wiki.python.org/moin/WindowsCompilers 
 
 * note that sometimes your platform and your Python version does not match the packages we prepared upfront in the binary form (that does not require compilation), e.g. we have for Windows 10, Python 3.9 but not Python 3.11, or we might have one for Linux, but not for all distros. 
 
