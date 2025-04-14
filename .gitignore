@@ -3,3 +3,5 @@ html/*
 *.doctree
 *.pickle
 *.json
+docs/build/html/*
+docs/build/linkcheck/output.txt
