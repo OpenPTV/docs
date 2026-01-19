@@ -15,6 +15,10 @@ With the modern Python 3.11 and `enable` 6.0.0 installation is quite simple::
 	pyptv test_cavity  
 
 
+If you encounter this error `Could not load the Qt platform plugin "xcb" in "" even though it was found."` on Linux machine, follow these instructions: 
+1. `sudo apt-get install libxcb-cursor0`
+2. run `export QT_QPA_PLATFORM=xcb pyptv test_cavity`
+
 Introduction
 ------------
 
